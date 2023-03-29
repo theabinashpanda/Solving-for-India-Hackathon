@@ -1,0 +1,28 @@
+{
+  "name": "plant-disease-identification",
+  "version": "1.0.0",
+  "description": "An app to identify plant diseases from pictures of leaves",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theabinashpanda/Solving-for-India-Hackathon.git"
+  },
+  "author": "Abinash Panda, Sagnik Ghosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theabinashpanda/Solving-for-India-Hackathon/issues"
+  },
+  "homepage": "https://github.com/theabinashpanda/Solving-for-India-Hackathon#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.37.0",
+    "nodemon": "^2.0.22"
+  }
+}

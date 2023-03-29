@@ -1,0 +1,1 @@
+This directory is for the react app's development
