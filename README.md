@@ -6,6 +6,9 @@
 - Use GitHub to collaborate with your team and make sure all code and documentation are added there before submitting your project. 
 - You must be able to demonstrate what everyone in your team has contributed to the project.
 
+# Install dependencies
+``npm install``
+
 # Start command
 ``npm start``
 
