@@ -1,7 +1,7 @@
 {
   "name": "plant-disease-identification",
   "version": "1.0.0",
-  "description": "An app to identify plant diseases from pictures of leaves",
+  "description": "An app to identify plant diseases from pictures of them",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
