@@ -144,8 +144,9 @@ const TopBar = ({ list }) => {
                         flexGrow: 1,
                         display: { xs: 'none', md: 'flex' },
                         postion: 'relative',
+                        paddingTop: 1,
                         paddingLeft: 3,
-                        paddingRight: 3
+                        paddingRight: 3,
                     }}>
                         {pages.map((page) => (
                             <Button
@@ -157,9 +158,10 @@ const TopBar = ({ list }) => {
                                     display: 'block',
                                     paddingLeft: 3,
                                     paddingRight: 3,
-                                    paddingTop: 1.5,
                                     fontWeight: 400,
-                                    fontSize: '1rem',
+                                    letterSpacing: 2,
+                                    fontFamily: 'monospace',
+                                    fontSize: '1.1rem',
                                 }}>
                                 {page}
                             </Button>

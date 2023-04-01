@@ -12,6 +12,7 @@ const Search = styled('div')(({ theme }) => ({
     },
     marginLeft: 0,
     width: '100%',
+    marginTop: 4,
     [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(1),
         width: 'auto',
@@ -43,7 +44,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
             },
         },
     },
-    fontSize: '1.2rem'
+    fontSize: '1.1rem'
 }));
 
 const SearchBar = ({ setSearchTerm, setFocused }) => {
@@ -65,7 +66,12 @@ const SearchBar = ({ setSearchTerm, setFocused }) => {
                 onBlur={() => setFocused(false)}
                 onChange={handleSearch}
                 placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
+                inputProps={{
+                    'aria-label': 'search',
+                }}
+                sx={{
+                    fontFamily: 'monospace'
+                }}
             />
         </Search >
     )
