@@ -12,7 +12,6 @@ import MenuItem from '@mui/material/MenuItem';
 import SearchBar from './SearchBar';
 import SearchBarSm from './SearchBarSm';
 import { List, ListItem, ListItemText } from '@mui/material/';
-import { border, borderRadius } from '@mui/system';
 
 const pages = ['Dictionary', 'About the project'];
 
