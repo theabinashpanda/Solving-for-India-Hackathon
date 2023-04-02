@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3005/api/plants'
+const baseUrl = '/api/plants'
 
 const sendFile = (file) => {
     const data = new FormData()
