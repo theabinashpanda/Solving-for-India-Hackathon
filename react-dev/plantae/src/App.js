@@ -1,16 +1,24 @@
+import * as React from 'react'
 import TopBar from './TopBar'
-import { Box } from '@mui/material'
 import { useTheme } from '@emotion/react'
 
-const App = () => {
+const App = ({ list }) => {
     const theme = useTheme()
-    document.querySelector('body').style.backgroundColor = theme.palette.primary.main
+
+    if (!list) {
+        // dummy for testing:
+        list = [{ name: "Adaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", type: "leaf" },
+        { name: "Mahda", type: "fruit" },
+        { name: "Krata", type: "branch" },
+        { name: "Bhrata", type: "leaf" },]
+    }
+
+    document.querySelector('body').style.backgroundColor = theme.palette.primary.dark
+
     return (
         <div>
-            <Box>
-                <TopBar list={null} />
-            </Box>
-        </div>
+            <TopBar list={list} />
+        </div >
     )
 }
 

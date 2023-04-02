@@ -1,20 +1,25 @@
 import ReactDOM from 'react-dom/client'
 import { createTheme } from '@mui/material/styles'
 import App from './App'
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@mui/material';
 
-const lightTheme = createTheme({
+const darkTheme = createTheme({
     palette: {
         primary: {
             main: '#40513B',
             light: '#4e6247',
-            dark: '#212a1f'
+            dark: '#212a1f',
+            medium: '#424a40',
+            black: '#10150f',
+        },
+        secondary: {
+            main: '#b0b000'
         }
     }
 })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={darkTheme}>
         <App />
     </ThemeProvider >
 );

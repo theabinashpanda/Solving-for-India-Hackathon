@@ -3,20 +3,21 @@ import { styled, alpha } from '@mui/material/styles';
 import { InputBase } from '@mui/material/';
 import SearchIcon from '@mui/icons-material/Search';
 
-const Search = styled('div')(({ theme }) => ({
+const Search = styled('div')(({ theme, focused }) => ({
     position: 'relative',
-    borderRadius: theme.shape.borderRadius,
+    border: focused ? '1px solid white' : '1px solid #00000000',
+    borderRadius: 4,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
+        backgroundColor: alpha(theme.palette.common.white, 0.20),
     },
     marginLeft: 0,
+    marginRight: 0,
     width: '100%',
-    marginTop: 4,
     [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(1),
         width: 'auto',
     },
+    transition: 'border 0.2s, backgroundColor 0.2s'
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -47,17 +48,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     fontSize: '1.1rem'
 }));
 
-const SearchBar = ({ setSearchTerm, setFocused }) => {
-
-    const handleSearch = (event) => {
-        setSearchTerm(event.target.value)
-        if (event.target.value === '') {
-            setSearchTerm(null)
-        }
-    }
+const SearchBar = ({ handleSearch, setFocused, focused }) => {
 
     return (
-        <Search>
+        <Search focused={focused}>
             <SearchIconWrapper>
                 <SearchIcon />
             </SearchIconWrapper>
