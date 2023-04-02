@@ -1,7 +1,8 @@
 import { Button, Box } from '@mui/material'
 import * as React from 'react'
+import comms from './services/comms'
 
-const Upload = () => {
+const Upload = ({ setDisease }) => {
     const [file, setFile] = React.useState()
     const [preview, setPreview] = React.useState()
 
@@ -15,6 +16,11 @@ const Upload = () => {
         return () => URL.revokeObjectURL(objectUrl)
     }, [file])
 
+    const handleSubmit = async (event) => {
+        const res = await comms.sendFile(file)
+        setDisease(res)
+    }
+
     const inputFile = React.useRef(null)
     const handleButtonClick = (event) => {
         inputFile.current.click()
@@ -22,13 +28,8 @@ const Upload = () => {
     const handleUpload = (event) => {
         if (!event.target.files || event.target.files.length === 0) {
             setFile(undefined)
-            console.log('uplaoded')
         }
         setFile(event.target.files[0])
-    }
-
-    if (file) {
-        console.log('file: ', file)
     }
 
     return (
@@ -40,18 +41,32 @@ const Upload = () => {
                 ) : null}
             </Box>
             <form>
-
                 <input onChange={handleUpload} type='file' id='file' ref={inputFile} style={{ display: 'none' }} />
-                <Button onClick={handleButtonClick} variant="contained" disableElevation sx={{
-                    bgcolor: 'primary.bright',
-                    color: 'primary.black',
-                    fontSize: '1.2rem',
-                    '&:hover': {
-                        bgcolor: 'primary.black',
-                        color: 'primary.bright'
-                    },
-                    padding: '0.5rem 1rem'
-                }}>Upload</Button>
+                <Box>
+                    <Button onClick={handleButtonClick} variant="contained" disableElevation sx={{
+                        bgcolor: 'primary.bright',
+                        color: 'primary.black',
+                        fontSize: '1.2rem',
+                        '&:hover': {
+                            bgcolor: 'primary.black',
+                            color: 'primary.bright'
+                        },
+                        padding: '0.5rem 1rem',
+                        margin: '0.5rem'
+                    }}>{preview ? (<>Change</>) : (<>Upload</>)}</Button>
+                    <Button onClick={handleSubmit} variant="contained" disableElevation sx={{
+                        bgcolor: 'primary.light',
+                        color: 'primary.black',
+                        fontSize: '1.2rem',
+                        '&:hover': {
+                            bgcolor: 'primary.black',
+                            color: 'primary.light'
+                        },
+                        margin: '0.5rem',
+                        padding: '0.5rem 1rem',
+                        display: preview ? 'inline' : 'none'
+                    }}>Submit</Button>
+                </Box>
             </form>
         </Box>
     )

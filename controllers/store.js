@@ -6,9 +6,9 @@ const { v4: uuid } = require('uuid')
 const basePath = config.BASE_PATH + '/images/tmp/'
 
 const store = (file) => {
-    const newName = `${basePath}${uuid()}.${file.image.name.split('.').at(-1)}`
+    const newName = `${basePath}${uuid()}.${file.file.name.split('.').at(-1)}`
     const rename = util.promisify(fs.rename)
-    return rename(file.image.tempFilePath, newName)
+    return rename(file.file.tempFilePath, newName)
         .then(() => { return newName })
 
 }

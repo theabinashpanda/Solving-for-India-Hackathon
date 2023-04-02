@@ -13,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import SearchBar from './SearchBar';
 import SearchBarSm from './SearchBarSm';
 import { List, ListItem, ListItemText, TextField } from '@mui/material/';
+import zIndex from '@mui/material/styles/zIndex';
 
 const pages = ['Dictionary', 'About the project'];
 
@@ -214,7 +215,8 @@ const TopBar = ({ list }) => {
                     width: '100vw',
                     height: '100vh',
                     position: 'absolute',
-                    bgcolor: 'primary.light'
+                    bgcolor: 'primary.light',
+                    zIndex: '1'
                 }}>
                     <ArrowBackIcon onClick={() => setShowBar(false)} sx={{
                         transform: 'scale(1.5)',
