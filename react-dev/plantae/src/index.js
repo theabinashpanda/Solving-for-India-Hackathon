@@ -7,6 +7,7 @@ const darkTheme = createTheme({
     palette: {
         primary: {
             main: '#40513B',
+            bright: '#EDF1D6',
             light: '#4e6247',
             dark: '#212a1f',
             medium: '#424a40',

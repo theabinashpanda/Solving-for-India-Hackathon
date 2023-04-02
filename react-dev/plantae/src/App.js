@@ -1,6 +1,8 @@
 import * as React from 'react'
 import TopBar from './TopBar'
-import { useTheme } from '@emotion/react'
+import Upload from './Upload'
+import { Box } from '@mui/material'
+import { useTheme } from '@mui/material'
 
 const App = ({ list }) => {
     const theme = useTheme()
@@ -16,9 +18,12 @@ const App = ({ list }) => {
     document.querySelector('body').style.backgroundColor = theme.palette.primary.dark
 
     return (
-        <div>
+        <Box>
             <TopBar list={list} />
-        </div >
+            <Box display='flex' alignItems='center' justifyContent='center' height={{ xs: '90vh', md: '88vh' }}>
+                <Upload />
+            </Box>
+        </Box >
     )
 }
 
