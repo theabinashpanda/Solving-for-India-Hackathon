@@ -6,3 +6,6 @@
 
 # images directory
 /images
+
+# directory for managing deployment
+/deployment
