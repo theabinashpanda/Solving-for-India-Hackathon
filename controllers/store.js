@@ -4,13 +4,17 @@ const { Storage } = require('@google-cloud/storage')
 const util = require('util')
 const path = require('path')
 // eslint-disable-next-line no-undef
-const serviceKey = path.join(__dirname, './plantae-382703-62ab865548c8.json')
+const serviceKey = path.join(__dirname, './keys.json')
 
-const bucketName = 'recvd_images'
+// the name of the bucket
+const bucketName = ''
+
+// the project id
+const projectId = ''
 
 const storage = new Storage({
     keyFilename: serviceKey,
-    projectId: 'plantae-382703'
+    projectId: projectId
 })
 
 const bucket = storage.bucket(bucketName)
