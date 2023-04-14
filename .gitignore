@@ -9,6 +9,7 @@
 
 # directory for managing deployment
 /deployment
+deployment.tar.gz
 
 #keys
 keys.json
