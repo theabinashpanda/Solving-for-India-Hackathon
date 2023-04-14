@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material'
-import ArrowBackIcon from '@mui/icons-material/West';
+import ArrowBackIcon from '@mui/icons-material/West'
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 const About = ({ setAbout }) => {
 
@@ -63,6 +64,52 @@ const About = ({ setAbout }) => {
                         The project has been deployed on Google Compute Engine and stores the images uploaded in a
                         GCP bucket for training and testing purposes.
                     </p>
+                    <Box display='flex' flexDirection='column' alignItems='center' width='100%'>
+                        <a href='https://github.com/theabinashpanda/Solving-for-India-Hackathon' target='_blank' rel='noreferrer'>
+                            <GitHubIcon sx={{
+                                display: 'block',
+                                fontSize: '50px',
+                                color: 'primary.bright',
+                                padding: '20px'
+                            }} />
+                        </a>
+                        <Typography display='block' variant='body1'>Made by <Typography variant='inherit'
+                            sx={{
+                                display: 'inline',
+                                'a': {
+                                    color: 'primary.dark',
+                                    textDecoration: 'none',
+                                    backgroundColor: 'primary.bright',
+                                    whiteSpace: 'nowrap',
+                                    '&:hover': {
+                                        color: 'primary.light',
+                                        backgroundColor: 'primary.dark'
+                                    }
+                                }
+                            }}>
+                            <a href='https://github.com/theabinashpanda/' target='_blank' rel='noreferrer'>
+                                Abinash Panda
+                            </a>
+                        </Typography> and <Typography variant='inherit'
+                            sx={{
+                                display: 'inline',
+                                'a': {
+                                    color: 'primary.dark',
+                                    textDecoration: 'none',
+                                    backgroundColor: 'primary.bright',
+                                    whiteSpace: 'nowrap',
+                                    '&:hover': {
+                                        color: 'primary.light',
+                                        backgroundColor: 'primary.dark'
+                                    }
+                                }
+                            }}>
+                                <a href='https://github.com/GuyGalvarino' target='_blank' rel='noreferrer'>
+                                    Sagnik Ghosh
+                                </a>
+                            </Typography>
+                        </Typography>
+                    </Box>
                     <Typography variant='h5'
                         sx={{
                             display: 'block',
