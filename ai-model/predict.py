@@ -8,6 +8,7 @@ import tensorflow as tf
 # print('imports received')
 
 PATH = sys.argv[1]
+DIR = sys.argv[2]
 IMG_SIZE = 160
 CLASS_NAMES = ['Diseased', 'Fresh']
 
@@ -18,7 +19,7 @@ image = tf.image.resize(image, (IMG_SIZE, IMG_SIZE))
 # print('image loaded')
 
 # print('loading the model...')
-model = tf.keras.models.load_model('/home/light/Projects/Solving-for-India-Hackathon/ai-model/cotton.h5')
+model = tf.keras.models.load_model(DIR + 'cotton.h5')
 # print('model loaded')
 
 res = model.predict(np.array([image]), verbose=0)[0][0] * 2

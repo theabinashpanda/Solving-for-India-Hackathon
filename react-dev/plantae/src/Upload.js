@@ -1,4 +1,4 @@
-import { Button, Box } from '@mui/material'
+import { Button, Box, Typography } from '@mui/material'
 import UploadIcon from '@mui/icons-material/Spa'
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -89,6 +89,7 @@ const Upload = ({ setDisease }) => {
                     }}>Submit</Button>
                 </Box>
             </form>
+            <Typography variant='h6' paddingTop={8} color='primary.light'>Cotton leaves only for now, more coming soon!</Typography>
         </Box>
     )
 }
