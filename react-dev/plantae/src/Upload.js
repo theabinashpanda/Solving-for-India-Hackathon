@@ -42,26 +42,58 @@ const Upload = ({ setDisease }) => {
     return (
         <Box display='flex' alignItems='center' justifyContent='space-evenly' flexDirection='column'>
 
-            <Box margin={4} display='flex' height="300px" alignItems='center'>
+            <Box margin={4}
+                display='flex'
+                flexDirection='column'
+                justifyContent='center'
+                alignItems='center'
+                height="300px">
                 {!loading
                     ? (preview
                         ? (
                             <img src={preview} alt="uploaded" height='300px' />
                         )
                         : (
-                            <UploadIcon sx={{
-                                fontSize: '200px',
-                                display: 'block',
-                                color: 'primary.light',
-                                height: '300px'
-                            }} />
+                            <>
+                                <UploadIcon sx={{
+                                    fontSize: '200px',
+                                    display: 'block',
+                                    color: 'primary.light',
+                                    height: '200px'
+                                }} />
+                                <Typography display='block'
+                                    paddingTop={5}
+                                    paddingLeft={5}
+                                    paddingRight={5}
+                                    textAlign='center'
+                                    color='primary.light'
+                                    sx={{
+                                        typography: {xs: 'h5', md: 'h4'}
+                                    }}
+                                >
+                                    Upload an image of the plant to check its health
+                                </Typography>
+                                <Typography
+                                    paddingTop={2}
+                                    paddingBottom={5}
+                                    paddingLeft={5}
+                                    paddingRight={5}
+                                    textAlign='center'
+                                    color='primary.light'
+                                    sx={{
+                                        typography: {xs: 'body2', md: 'h6'}
+                                    }}
+                                >
+                                    Cotton leaves only for now, more coming soon!
+                                </Typography>
+                            </>
                         ))
                     : (<CircularProgress size="100px" />)
                 }
             </Box>
             <form>
                 <input onChange={handleUpload} type='file' id='file' ref={inputFile} style={{ display: 'none' }} />
-                <Box sx={{ display: loading ? 'none' : 'block' }}>
+                <Box paddingTop={4} sx={{ display: loading ? 'none' : 'block' }}>
                     <Button onClick={handleButtonClick} variant="contained" disableElevation sx={{
                         bgcolor: 'primary.bright',
                         color: 'primary.black',
@@ -89,8 +121,8 @@ const Upload = ({ setDisease }) => {
                     }}>Submit</Button>
                 </Box>
             </form>
-            <Typography variant='h6' paddingTop={8} color='primary.light'>Cotton leaves only for now, more coming soon!</Typography>
-        </Box>
+
+        </Box >
     )
 }
 

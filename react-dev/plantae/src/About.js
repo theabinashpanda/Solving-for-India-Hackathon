@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/West';
-import { alignProperty } from '@mui/material/styles/cssUtils';
 
 const About = ({ setAbout }) => {
 
@@ -12,8 +11,8 @@ const About = ({ setAbout }) => {
         }}>
             <ArrowBackIcon onClick={() => setAbout(false)} sx={{
                 transform: 'scale(1.5)',
-                paddingTop: 2,
                 paddingLeft: 4,
+                paddingBottom: 4,
                 display: 'block',
                 color: 'primary.bright',
                 cursor: 'pointer'
@@ -55,7 +54,7 @@ const About = ({ setAbout }) => {
                                 }
                             }
                         }}>
-                            <a href='https://www.kaggle.com/datasets/janmejaybhoi/cotton-disease-dataset' target='_blank'>
+                            <a href='https://www.kaggle.com/datasets/janmejaybhoi/cotton-disease-dataset' target='_blank' rel='noreferrer'>
                                 Cotton Disease Dataset by D3V on kaggle.
                             </a>
                         </Typography>

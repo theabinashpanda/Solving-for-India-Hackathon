@@ -27,7 +27,7 @@ const App = ({ list }) => {
         <Box>
             <TopBar list={list} setAbout={setAbout} />
             {!about ? (
-                <Box display='flex' alignItems='center' justifyContent='center' height={{ xs: '75vh', md: '73vh' }}>
+                <Box display='flex' alignItems='center' justifyContent='center' height={{ xs: '90vh', md: '73vh' }}>
                     {!disease
                         ? (
                             <Upload setDisease={setDisease} />
