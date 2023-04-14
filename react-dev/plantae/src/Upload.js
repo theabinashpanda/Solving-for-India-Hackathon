@@ -1,10 +1,14 @@
 import { Button, Box } from '@mui/material'
+import UploadIcon from '@mui/icons-material/Spa'
+import CircularProgress from '@mui/material/CircularProgress';
+
 import * as React from 'react'
 import comms from './services/comms'
 
 const Upload = ({ setDisease }) => {
     const [file, setFile] = React.useState()
     const [preview, setPreview] = React.useState()
+    const [loading, setLoading] = React.useState(false)
 
     React.useEffect(() => {
         if (!file) {
@@ -17,7 +21,9 @@ const Upload = ({ setDisease }) => {
     }, [file])
 
     const handleSubmit = async (event) => {
+        setLoading(true)
         const res = await comms.sendFile(file)
+        setLoading(false)
         setDisease(res)
     }
 
@@ -25,6 +31,7 @@ const Upload = ({ setDisease }) => {
     const handleButtonClick = (event) => {
         inputFile.current.click()
     }
+
     const handleUpload = (event) => {
         if (!event.target.files || event.target.files.length === 0) {
             setFile(undefined)
@@ -33,16 +40,28 @@ const Upload = ({ setDisease }) => {
     }
 
     return (
-        <Box display='flex' alignItems='center' justifyContent='center' flexDirection='column'>
+        <Box display='flex' alignItems='center' justifyContent='space-evenly' flexDirection='column'>
 
-            <Box margin={4} display='block' height='300px'>
-                {preview ? (
-                    <img src={preview} alt="uploaded" height='300px' />
-                ) : null}
+            <Box margin={4} display='flex' height="300px" alignItems='center'>
+                {!loading
+                    ? (preview
+                        ? (
+                            <img src={preview} alt="uploaded" height='300px' />
+                        )
+                        : (
+                            <UploadIcon sx={{
+                                fontSize: '200px',
+                                display: 'block',
+                                color: 'primary.light',
+                                height: '300px'
+                            }} />
+                        ))
+                    : (<CircularProgress size="100px" />)
+                }
             </Box>
             <form>
                 <input onChange={handleUpload} type='file' id='file' ref={inputFile} style={{ display: 'none' }} />
-                <Box>
+                <Box sx={{ display: loading ? 'none' : 'block' }}>
                     <Button onClick={handleButtonClick} variant="contained" disableElevation sx={{
                         bgcolor: 'primary.bright',
                         color: 'primary.black',
@@ -53,7 +72,9 @@ const Upload = ({ setDisease }) => {
                         },
                         padding: '0.5rem 1rem',
                         margin: '0.5rem'
-                    }}>{preview ? (<>Change</>) : (<>Upload</>)}</Button>
+                    }}>
+                        {preview ? (<>Change</>) : (<>Upload</>)}
+                    </Button>
                     <Button onClick={handleSubmit} variant="contained" disableElevation sx={{
                         bgcolor: 'primary.light',
                         color: 'primary.black',

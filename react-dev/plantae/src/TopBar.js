@@ -13,18 +13,22 @@ import MenuItem from '@mui/material/MenuItem';
 import SearchBar from './SearchBar';
 import SearchBarSm from './SearchBarSm';
 import { List, ListItem, ListItemText, TextField } from '@mui/material/';
-import zIndex from '@mui/material/styles/zIndex';
 
-const pages = ['Dictionary', 'About the project'];
+// const pages = ['Dictionary', 'About the project'];
+const pages = ['About the project'];
 
-const TopBar = ({ list }) => {
+const TopBar = ({ list, setAbout }) => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [focused, setFocused] = React.useState(false)
     const [searchTerm, setSearchTerm] = React.useState(null)
     const [showBar, setShowBar] = React.useState(false)
 
-    const filteredList = list && searchTerm
-        ? list.filter(item => item.name.toUpperCase().includes(searchTerm.toUpperCase()))
+    const pageHandler = [
+        () => setAbout(true)
+    ]
+
+    const filteredList = list // && searchTerm
+        ? list.filter(item => true)  //item.name.toUpperCase().includes(searchTerm.toUpperCase())
             .map(item => (
                 <ListItem>
                     {/* for icons:
@@ -67,7 +71,7 @@ const TopBar = ({ list }) => {
             }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters >
-                        <Typography
+                        <Typography         // heading
                             variant="h6"
                             noWrap
                             component="a"
@@ -87,12 +91,12 @@ const TopBar = ({ list }) => {
                             Plantae
                         </Typography>
 
-                        <Box sx={{
+                        <Box sx={{          // hamburger menu
                             flexGrow: 1, display: { xs: 'flex', md: 'none' }
                         }}>
                             <IconButton
                                 size="large"
-                                aria-label="account of current user"
+                                aria-label="menu"
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
                                 onClick={handleOpenNavMenu}
@@ -118,14 +122,14 @@ const TopBar = ({ list }) => {
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
-                                {pages.map((page) => (
+                                {pages.map((page, index) => (
                                     <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">{page}</Typography>
+                                        <Typography textAlign="center" onClick={pageHandler[index]}>{page}</Typography>
                                     </MenuItem>
                                 ))}
                             </Menu>
                         </Box>
-                        <Typography
+                        <Typography         // heading
                             variant="h5"
                             noWrap
                             component="a"
@@ -143,7 +147,7 @@ const TopBar = ({ list }) => {
                         >
                             Plantae
                         </Typography>
-                        <Box sx={{
+                        <Box sx={{          // buttons menu
                             flexGrow: 1,
                             display: { xs: 'none', md: 'flex' },
                             postion: 'relative',
@@ -151,10 +155,11 @@ const TopBar = ({ list }) => {
                             paddingLeft: 3,
                             paddingRight: 3,
                         }}>
-                            {pages.map((page) => (
+                            {pages.map((page, index) => (
                                 <Button
                                     key={page}
-                                    onClick={handleCloseNavMenu}
+                                    // onClick={handleCloseNavMenu}
+                                    onClick={pageHandler[index]}
                                     sx={{
                                         my: 2,
                                         color: 'white',

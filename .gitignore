@@ -9,3 +9,6 @@
 
 # directory for managing deployment
 /deployment
+
+#keys
+keys.json

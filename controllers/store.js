@@ -1,16 +1,17 @@
 const fs = require('fs')
+const config = require('../utils/config')
 const { v4: uuid } = require('uuid')
 const { Storage } = require('@google-cloud/storage')
 const util = require('util')
 const path = require('path')
 // eslint-disable-next-line no-undef
-const serviceKey = path.join(__dirname, './keys.json')
+const serviceKey = path.join(__dirname, '../keys.json')
 
 // the name of the bucket
-const bucketName = ''
+const bucketName = config.BUCKET
 
 // the project id
-const projectId = ''
+const projectId = config.PROJECT_ID
 
 const storage = new Storage({
     keyFilename: serviceKey,
@@ -43,4 +44,4 @@ const store = async (file) => {
     }).catch((e) => console.error(e))
 }
 
-module.exports = { store }
+module.exports = store
